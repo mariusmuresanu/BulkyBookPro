@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Principal;
 
-namespace BulkyBookWebPro.Models
+namespace BulkyBookPro.Models
 {
     public class Category
     {
@@ -11,7 +11,7 @@ namespace BulkyBookWebPro.Models
         [Required]
         public string Name { get; set; }
         [DisplayName("Display Order")]
-        [Range(1,100,ErrorMessage ="Display Order must be between1 and 100 only!" )]
+        [Range(1, 100, ErrorMessage = "Display Order must be between1 and 100 only!")]
         public int DisplayOrder { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
     }
