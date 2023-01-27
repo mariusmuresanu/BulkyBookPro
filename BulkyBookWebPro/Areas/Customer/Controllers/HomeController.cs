@@ -3,7 +3,7 @@ using BulkyBookPro.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace BulkyBookWebPro.Controllers
+namespace BulkyBookWebPro.Areas.Customer.Controllers
 {
     public class HomeController : Controller
     {
