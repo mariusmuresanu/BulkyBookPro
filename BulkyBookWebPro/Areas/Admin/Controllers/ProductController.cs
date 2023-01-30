@@ -20,12 +20,9 @@ public class ProductController : Controller
     }
     public IActionResult Index()
     {
-        IEnumerable<CoverType> objCoverTypeList = _unitOfWork.CoverType.GetAll();
-        return View(objCoverTypeList);
+        return View();
     }
   
-
-
     //GET
     public IActionResult Upsert(int? id)
     {
@@ -118,4 +115,13 @@ public class ProductController : Controller
         TempData["success"] = "CoverType deleted successfully";
         return RedirectToAction("Index");
     }
+
+    #region API CALLS
+    [HttpGet]
+    public IActionResult GetAll()
+    {
+        var productList = _unitOfWork.Product.GetAll();
+        return Json(new { data = productList });
+    }
+    #endregion
 }
