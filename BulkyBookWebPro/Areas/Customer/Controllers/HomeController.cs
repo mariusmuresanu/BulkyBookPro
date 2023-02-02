@@ -1,6 +1,7 @@
 ﻿using BulkyBookPro.DataAccess;
 using BulkyBookPro.DataAccess.Repository.IRepository;
 using BulkyBookPro.Models;
+using BulkyBookPro.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -25,8 +26,12 @@ namespace BulkyBookWebPro.Areas.Customer.Controllers
 
         public IActionResult Details(int id)
         {
-            Product product = _unitOfWork.Product.GetFirstOrDefault(u=>u.Id==id,includeProperties: "Category,CoverType");
-            return View(product);
+            ShoppingCart cartObj = new()
+            {
+                Count = 1,
+                Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,CoverType"),
+            }; 
+            return View(cartObj);
         }
 
         public IActionResult Privacy()
